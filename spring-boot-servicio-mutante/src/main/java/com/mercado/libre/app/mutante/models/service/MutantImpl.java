@@ -58,7 +58,7 @@ public class MutantImpl implements IMutantService {
 		validarSecuenciaAdnVertical(matrizDna);
 		if (!cadenasAdn.isEmpty()) {
 			for (String adn : cadenasAdn) {
-				listaMutant.add(new AdnMutant(adn));// error validar se queda con el ultimo objeto
+				listaMutant.add(new AdnMutant(adn));
 			}
 		}
 		if (!cadenasAdn.isEmpty() && cadenasAdn.size() > 1) {
