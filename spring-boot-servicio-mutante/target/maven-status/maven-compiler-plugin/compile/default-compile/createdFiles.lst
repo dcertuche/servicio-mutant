@@ -5,7 +5,7 @@ com\mercado\libre\app\mutante\controller\MutantController.class
 com\mercado\libre\app\mutante\models\entity\Mutant.class
 com\mercado\libre\app\mutante\models\constamts\MessageExceptionConstans.class
 com\mercado\libre\app\mutante\models\dao\MutantDao.class
-com\mercado\libre\app\mutante\models\exception\ForbidenException.class
 com\mercado\libre\app\mutante\models\service\MutantImpl.class
 com\mercado\libre\app\mutante\SpringBootServicioMutanteApplication.class
 com\mercado\libre\app\mutante\util\Util.class
+com\mercado\libre\app\mutante\models\exception\ForbiddenException.class

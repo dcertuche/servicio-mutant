@@ -3,11 +3,11 @@ package com.mercado.libre.app.mutante;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest()
 class SpringBootServicioMutanteApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void testMetodoStats() {
 	}
 
 }

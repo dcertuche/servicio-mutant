@@ -7,5 +7,5 @@ C:\springCloud\workspace\spring-boot-servicio-mutante\src\main\java\com\mercado\
 C:\springCloud\workspace\spring-boot-servicio-mutante\src\main\java\com\mercado\libre\app\mutante\SpringBootServicioMutanteApplication.java
 C:\springCloud\workspace\spring-boot-servicio-mutante\src\main\java\com\mercado\libre\app\mutante\models\dto\EstadisticaDto.java
 C:\springCloud\workspace\spring-boot-servicio-mutante\src\main\java\com\mercado\libre\app\mutante\models\entity\Mutant.java
-C:\springCloud\workspace\spring-boot-servicio-mutante\src\main\java\com\mercado\libre\app\mutante\models\exception\ForbidenException.java
+C:\springCloud\workspace\spring-boot-servicio-mutante\src\main\java\com\mercado\libre\app\mutante\models\exception\ForbiddenException.java
 C:\springCloud\workspace\spring-boot-servicio-mutante\src\main\java\com\mercado\libre\app\mutante\controller\MutantController.java

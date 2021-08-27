@@ -16,7 +16,7 @@ import com.mercado.libre.app.mutante.models.dao.MutantDao;
 import com.mercado.libre.app.mutante.models.dto.EstadisticaDto;
 import com.mercado.libre.app.mutante.models.entity.AdnMutant;
 import com.mercado.libre.app.mutante.models.entity.Mutant;
-import com.mercado.libre.app.mutante.models.exception.ForbidenException;
+import com.mercado.libre.app.mutante.models.exception.ForbiddenException;
 import com.mercado.libre.app.mutante.util.Util;
 
 @Service
@@ -35,8 +35,16 @@ public class MutantImpl implements IMutantService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Mutant> findAllMutant() {
-		return (List<Mutant>) mutantDao.findAll();
+	public Map<String, Object> findAllMutant() throws ForbiddenException {
+		Map<String, Object> response = new HashMap<>();
+		List<Mutant> lista = (List<Mutant>) mutantDao.findAll();
+		if (lista.isEmpty()) {
+			throw new ForbiddenException(MessageExceptionConstans.MSG_NOT_DATA);
+		}
+		EstadisticaDto estadisticaDto = new EstadisticaDto();
+		metodoMover(lista, estadisticaDto);
+		response.put("ADN", estadisticaDto);
+		return response;
 	}
 
 	private Boolean isMutant(String[][] matrizDna, String[] dna) {
@@ -77,15 +85,15 @@ public class MutantImpl implements IMutantService {
 	}
 
 	@Override
-	public Map<String, Object> validarMutant(final String[] dna) throws ForbidenException {
+	public Map<String, Object> validarMutant(final String[] dna) throws ForbiddenException {
 
 		Map<String, Object> response = new HashMap<>();
 		String matrizDna[][] = Util.obtenerArray(dna);
 		if (matrizDna == null) {
-			throw new ForbidenException(MessageExceptionConstans.MSG_DATA_NO_VALID);
+			throw new ForbiddenException(MessageExceptionConstans.MSG_DATA_NO_VALID);
 		}
 		if (!isMutant(matrizDna, dna)) {
-			throw new ForbidenException(MessageExceptionConstans.MSG_DATA_NOT_MUTATNT);
+			throw new ForbiddenException(MessageExceptionConstans.MSG_DATA_NOT_MUTATNT);
 		}
 		response.put("mensaje", "El dna ha sido leido con éxito");
 		response.put("DNA", Arrays.toString(dna));
